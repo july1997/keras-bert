@@ -134,10 +134,10 @@ def load_model_weights_from_checkpoint(model,
             loader('bert/pooler/dense/kernel'),
             loader('bert/pooler/dense/bias'),
         ])
-        model.get_layer(name='NSP').set_weights([
-            np.transpose(loader('cls/seq_relationship/output_weights')),
-            loader('cls/seq_relationship/output_bias'),
-        ])
+        #model.get_layer(name='NSP').set_weights([
+        #    np.transpose(loader('cls/seq_relationship/output_weights')),
+        #    loader('cls/seq_relationship/output_bias'),
+        #])
 
 
 def load_trained_model_from_checkpoint(config_file,
