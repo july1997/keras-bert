@@ -140,12 +140,12 @@ def get_model(token_num,
             activation='tanh',
             name='NSP-Dense',
         )(extract_layer)
-        #nsp_pred_layer = keras.layers.Dense(
-        #    units=2,
-        #    activation='softmax',
-        #    name='NSP',
-        #)(nsp_dense_layer)
-        model = keras.models.Model(inputs=inputs, outputs=[masked_layer, nsp_dense_layer])
+        nsp_pred_layer = keras.layers.Dense(
+            units=2,
+            activation='softmax',
+            name='NSP',
+        )(nsp_dense_layer)
+        model = keras.models.Model(inputs=inputs, outputs=[masked_layer, nsp_pred_layer])
         for layer in model.layers:
             layer.trainable = _trainable(layer)
         return model
